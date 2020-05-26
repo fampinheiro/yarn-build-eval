@@ -1,15 +1,8 @@
 const { paramCase } = require('param-case');
 const pkg = require('./package.json');
 
-const { NODE_ENV = 'development' } = process.env;
-
 const service = paramCase(pkg.name);
-const plugins = [
-  'serverless-s3-sync',
-  ...(NODE_ENV === 'production'
-    ? ['serverless-plugin-ncc']
-    : ['serverless-offline']),
-];
+const plugins = ['serverless-plugin-ncc'];
 
 const cors = {
   origin: {
