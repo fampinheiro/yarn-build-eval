@@ -17,7 +17,8 @@
     "start": "yarn workspaces foreach -pt run start",
     "start:mongodb": "docker run --name asap-mongodb -p 27017:27017 -e MONGO_INITDB_DATABASE=asap --rm -d mongo:4.2.6",
     "start:backend": "yarn sls offline",
-    "sls": "yarn pnpify serverless",
+    "sls": "node serverless/link-plugins.js && yarn pnpify serverless",
+    "package": "yarn build && yarn sls package",
     "fix:format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,html,css,scss,md,mdx,yml,yaml}\"",
     "lint:format": "prettier -l \"**/*.{js,jsx,ts,tsx,json,html,css,scss,md,mdx,yml,yaml}\"",
     "test": "jest"

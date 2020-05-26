@@ -40,13 +40,6 @@ module.exports = {
   },
   package: {
     individually: true,
-    // we don't need this because of ncc
-    excludeDevDependencies: false,
-  },
-  custom: {
-    ncc: {
-      sourceMap: true,
-    },
   },
   functions: {
     'create-user': {
